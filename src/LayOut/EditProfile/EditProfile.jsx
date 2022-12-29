@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
-  // console.log(user);
-  // const navigate = useNavigate();
 
   const handleSubmit = (event, id) => {
     event.preventDefault();
@@ -70,17 +67,18 @@ const EditProfile = () => {
         <h1 className="text-3xl">Account</h1>
         <hr className="mt-2 h-[2px] bg-blue-400 mb-4" />
 
-        <form
-          onSubmit={handleSubmit}
-          noValidate=""
-          action=""
-          className="space-y-12 px-12 ng-untouched ng-pristine ng-valid"
-        >
+        
           <div className="space-y-4">
             <div className="flex justify-between">
               <div className=" space-between">
                 <div className="flex justify-center items-center">
                   <p className="text-xl  mb-5 text-bold">Profile Picture</p>
+                  <form
+          onSubmit={handleSubmit}
+          noValidate=""
+          action=""
+          className="space-y-12 px-12 ng-untouched ng-pristine ng-valid"
+        >
                   <div className="space-y-2">
                     <div className="buttons flex">
                       <label
@@ -194,6 +192,7 @@ const EditProfile = () => {
                       </div>
                     </div>
                   </div>
+                  </form>
                 </div>
                 <div className="flex justify-center items-center">
                   {user?.photoURL ? (
@@ -380,7 +379,7 @@ const EditProfile = () => {
               </div>
             </div>
           </div> */}
-        </form>
+        
       </div>
     </div>
   );
