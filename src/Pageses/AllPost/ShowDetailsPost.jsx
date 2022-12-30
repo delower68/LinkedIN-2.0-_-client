@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const ShowDetailsPost = () => {
   const postInfo = useLoaderData();
-  const { photo, details, name, comment} = postInfo;
+  const { photo, details, name} = postInfo;
   const description  = details.slice(0,8) 
 
   
@@ -13,7 +13,7 @@ const ShowDetailsPost = () => {
     event.preventDefault();
     
     fetch(`http://localhost:4000/posts/${postInfo._id}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: {
           'content-type': 'application/json'
         },

@@ -20,11 +20,11 @@ const ShowAllPost = ({ posts }) => {
       setLike(like + 1);
     } else {
       setLikeActive(true);
-      setLike(like - 1);
+      setLike(like + 1);
       if (disLikeActive) {
         setDislikeActive(false);
         setLike(like + 1);
-        setDislike(disLike - 1);
+        setDislike(disLike + 1);
       }
     }
   }
