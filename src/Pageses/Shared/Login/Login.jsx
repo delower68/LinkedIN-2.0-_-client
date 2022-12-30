@@ -15,7 +15,7 @@ const Login = () => {
       const [loginError, setLoginError] = useState("");
       const location = useLocation();
       const navigate = useNavigate();
-    //   const [loginUserEmail, setLoginUserEmail] = useState("");
+    
     
     
       const from = location.state?.from?.pathname || '/';
@@ -29,7 +29,7 @@ const Login = () => {
                 console.log(user);
                 toast("Thank You Welcome back. Login Successfull ")
                 navigate(from , {replace: true})
-                    // setLoginUserEmail(data.email)
+                
             })
             .catch(err => {
                 console.error(err)
@@ -54,9 +54,9 @@ const Login = () => {
             })
       }
     return (
-        <div className="lg:flex justify-center items-center    p-10">
+        <div className="lg:flex justify-center items-center ">
         <div
-          className="hero w-[450px] h-[600px] bg-cover"
+          className="hero w-[390px] h-[600px] bg-cover"
           style={{
             backgroundImage: `url("https://onlineprofilepros.com/wp-content/uploads/2019/10/linkedin-login.jpg")`,
           }}
@@ -69,7 +69,7 @@ const Login = () => {
             And share your creativity <br /> Let's go for share{" "}
           </p>
         </div>
-        <div className="px-5 w-[450px] -ml-24 text-center bg-slate-100 z-20 py-20  bg-blend-screen">
+        <div className="px-5 w-[450px] lg:-ml-24 text-center bg-slate-100 z-20 py-20  bg-blend-screen">
           <h1 className="text-2xl  font-bold">Welcome to your</h1>
           <div className=" float-right my-2 w-24  font-thin">
             <p className="text-center p-1  text-sm rounded-md sm:w-auto focus:outline-none  dark:text-gray-100 dark:bg-gray-900">

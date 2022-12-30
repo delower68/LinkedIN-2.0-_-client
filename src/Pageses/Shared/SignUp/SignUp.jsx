@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 
-
 const SignUp = () => {
-    const { createUser,updateUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -20,7 +20,8 @@ const SignUp = () => {
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        toast("Welcome sir.. Sign Up Successfull")
+        toast("Welcome sir.. Sign Up Successfull");
+        navigate("/");
         console.log(user);
         const userInfo = {
           displayName: data.name,
@@ -38,7 +39,7 @@ const SignUp = () => {
 
   const saveUser = (name, email, type) => {
     const user = { name, email, type };
-    fetch("http://localhost:4000/users", {
+    fetch("https://linked-in-2-0-eight.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -48,15 +49,14 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("save user ", data);
-        // setCreateUserEmail(email);
       });
   };
-  
+
   return (
     <div>
-      <div className="lg:flex justify-center items-center    p-10">
+      <div className="lg:flex justify-center items-center ">
         <div
-          className="hero w-[450px] h-[680px] bg-cover"
+          className="hero w-[390px] h-[680px] bg-cover"
           style={{
             backgroundImage: `url("https://onlineprofilepros.com/wp-content/uploads/2019/10/linkedin-login.jpg")`,
           }}
@@ -70,7 +70,7 @@ const SignUp = () => {
             And share your creativity <br /> Let's go for share{" "}
           </p>
         </div>
-        <div className="px-5 w-[450px] -ml-24 text-center bg-slate-100 z-20 py-20  bg-blend-screen">
+        <div className="px-5 w-[450px] lg:-ml-24 text-center bg-slate-100 z-20 py-20  bg-blend-screen">
           <h1 className="text-2xl  font-bold">Welcome to your world</h1>
           <div className=" float-right my-2 w-24  font-thin">
             <p className="text-center p-1  text-sm rounded-md sm:w-auto focus:outline-none  dark:text-gray-100 dark:bg-gray-900">
